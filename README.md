@@ -23,3 +23,4 @@ No segundo trabalho da disciplina, você deverá utilizar Redes Neurais Convoluc
 2- \> conda create -n tensorflow python=3.5  
 3- \> activate tensorflow  
 4- (tensorflow) \> pip install --ignore-installed --upgrade tensorflow  ( or tensorflow-gpu )  
+5- (tensorflow) \> pip install keras
