@@ -24,3 +24,23 @@ No segundo trabalho da disciplina, você deverá utilizar Redes Neurais Convoluc
 3- \> activate tensorflow  
 4- (tensorflow) \> pip install --ignore-installed --upgrade tensorflow  ( or tensorflow-gpu )  
 5- (tensorflow) \> pip install keras
+6- (tensorflow) \> pip install opencv-python
+7- (tensorflow) \> pip install sklearn
+8- (tensorflow) \> pip install h5py
+
+## Dataset prepar
+1- Download and extract dataset, pedestrian_signal_classification.zip, https://drive.google.com/open?id=0B2MY7T7S8OmJVVlCTW1jYWxqUVE
+2- create the dataset.py file
+2- create get_best_size(dir) to show the mean size images
+2- create load_data(dir, h, w) to load (and resize) images and create labels
+
+## PIPELINE
+1- Install framework
+2- Download train example cifar10: https://raw.githubusercontent.com/fchollet/keras/master/examples/cifar10_cnn.py to train.py
+3- run train cifar10 (just for test, do not really train)
+4- create dataset prepar
+5- change train.py to use load_data(...)
+6- option to train with ou without data_augmentation
+7- change train.py to show tensorBoard: tensorboard --logdir=./logs
+8- change train.py to save best model (ModelCheckpoint)
+
