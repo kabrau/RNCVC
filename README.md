@@ -16,3 +16,10 @@ No segundo trabalho da disciplina, você deverá utilizar Redes Neurais Convoluc
 - Ter experiencia com um framework de Deep Learning. 
 - Executar experimentos de acordo com uma metodologia. 
 - Avaliar os resultados obtidos.
+
+
+## INSTALL  
+1- Baixe e Instale o conda: https://www.anaconda.com/download/  
+2- \> conda create -n tensorflow python=3.5  
+3- \> activate tensorflow  
+4- (tensorflow) \> pip install --ignore-installed --upgrade tensorflow  ( or tensorflow-gpu )  
