@@ -17,7 +17,7 @@ import dataset as ds
 batch_size = 32
 #num_classes = 10
 epochs = 100
-data_augmentation = False #True
+data_augmentation = True #False #True
 num_predictions = 20
 save_dir = os.path.join(os.getcwd(), 'saved_models')
 model_name = 'pedestrian_signal_cifar10_trained.h5' #'keras_cifar10_trained_model.h5'
@@ -32,7 +32,9 @@ model_name = 'pedestrian_signal_cifar10_trained.h5' #'keras_cifar10_trained_mode
 #y_train = keras.utils.to_categorical(y_train, num_classes)
 #y_test = keras.utils.to_categorical(y_test, num_classes)
 
-x_train, x_test, y_train, y_test, num_classes = ds.load_data("C:/Users/Cabral/Downloads/pedestrian_signal_classification/classification")
+#x_train, x_test, y_train, y_test, num_classes = ds.load_data("C:/Users/Cabral/Downloads/pedestrian_signal_classification/classification")
+x_train, x_test, y_train, y_test, num_classes = ds.load_data("E:/Datasets/pedestrian_signal/classification")
+
 
 model = Sequential()
 model.add(Conv2D(32, (3, 3), padding='same',
