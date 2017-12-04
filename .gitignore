@@ -1,3 +1,6 @@
 /weigths
 /logs
 /__pycache__/*.pyc
+/logs_old
+/*.png
+/saved_models

@@ -53,32 +53,41 @@ def load_data(data_dir, h=80, w=48):
             
         category += 1
 
-    X_train, X_test, y_train, y_test = train_test_split( images, labels, test_size=0.3, random_state=100) 
+    # 70% train
+    X_train, X_tmp, y_train, y_tmp = train_test_split( images, labels, test_size=0.3, random_state=100) 
+    # 15% valid and 15% test
+    X_valid, X_test, y_valid, y_test = train_test_split( X_tmp, y_tmp, test_size=0.5, random_state=100) 
 
     # normalize inputs from 0-255 and 0.0-1.0
     X_train = np.array(X_train).astype('float32')
+    X_valid = np.array(X_valid).astype('float32')
     X_test = np.array(X_test).astype('float32')
     X_train = X_train / 255.0
+    X_valid = X_valid / 255.0
     X_test = X_test / 255.0
 
     # one hot encode outputs
     y_train = np.array(y_train)
+    y_valid = np.array(y_valid)
     y_test = np.array(y_test)
     y_train = keras.utils.to_categorical(y_train)
+    y_valid = keras.utils.to_categorical(y_valid)
     y_test = keras.utils.to_categorical(y_test)
     num_classes = y_test.shape[1]
 
-    return X_train, X_test, y_train, y_test, num_classes
+    return X_train, X_valid, X_test, y_train, y_valid, y_test, num_classes
 
 
 
 
 if __name__ == "__main__":
     # get_best_size("C:/Users/Cabral/Downloads/pedestrian_signal_classification/classification")
-    X_train, X_test, y_train, y_test, num_classes = load_data("C:/Users/Cabral/Downloads/pedestrian_signal_classification/classification")
+    X_train, X_valid, X_test, y_train, y_valid, y_test, num_classes = load_data("C:/Users/marcelo/Downloads/pedestrian_signal_classification/classification")
 
     print(X_train.shape)
+    print(X_valid.shape)
     print(X_test.shape)
     print(len(y_train))
+    print(len(y_valid))
     print(len(y_test))
     print(num_classes)

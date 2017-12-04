@@ -27,6 +27,8 @@ No segundo trabalho da disciplina, você deverá utilizar Redes Neurais Convoluc
 6- (tensorflow) \> pip install opencv-python
 7- (tensorflow) \> pip install sklearn
 8- (tensorflow) \> pip install h5py
+9- (tensorflow) \> pip install pydot
+10- (tensorflow) \> pip install graphviz
 
 ## Dataset prepar
 1- Download and extract dataset, pedestrian_signal_classification.zip, https://drive.google.com/open?id=0B2MY7T7S8OmJVVlCTW1jYWxqUVE

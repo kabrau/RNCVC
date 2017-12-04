@@ -17,10 +17,8 @@ import dataset as ds
 batch_size = 32
 #num_classes = 10
 epochs = 100
-data_augmentation = True #False #True
-num_predictions = 20
+#num_predictions = 20
 save_dir = os.path.join(os.getcwd(), 'saved_models')
-model_name = 'pedestrian_signal_cifar10_trained.h5' #'keras_cifar10_trained_model.h5'
 
 # The data, shuffled and split between train and test sets:
 #(x_train, y_train), (x_test, y_test) = cifar10.load_data()
@@ -33,8 +31,12 @@ model_name = 'pedestrian_signal_cifar10_trained.h5' #'keras_cifar10_trained_mode
 #y_test = keras.utils.to_categorical(y_test, num_classes)
 
 #x_train, x_test, y_train, y_test, num_classes = ds.load_data("C:/Users/Cabral/Downloads/pedestrian_signal_classification/classification")
-x_train, x_test, y_train, y_test, num_classes = ds.load_data("E:/Datasets/pedestrian_signal/classification")
+x_train, x_valid, x_test, y_train, y_valid, y_test, num_classes = ds.load_data("E:/Datasets/pedestrian_signal/classification")
 
+model_name = 'rede1_aug' 
+
+if model_name:
+    data_augmentation = False
 
 model = Sequential()
 model.add(Conv2D(32, (3, 3), padding='same',
@@ -70,6 +72,8 @@ model.compile(loss='categorical_crossentropy',
 
 print(model.summary()) #Marcelo
 
+keras.utils.plot_model(model, to_file=model_name+'.png')
+
 #x_train = x_train.astype('float32')
 #x_test = x_test.astype('float32')
 #x_train /= 255
@@ -79,7 +83,7 @@ print(model.summary()) #Marcelo
 callbacks = []
 
 callbacks.append(
-   keras.callbacks.TensorBoard(log_dir='./logs', 
+   keras.callbacks.TensorBoard(log_dir='./logs/'+model_name, 
                                histogram_freq=0, #1
                                batch_size=batch_size, 
                                write_graph=True, 
@@ -105,7 +109,7 @@ if not data_augmentation:
     model.fit(x_train, y_train,
               batch_size=batch_size,
               epochs=epochs,
-              validation_data=(x_test, y_test),
+              validation_data=(x_valid, y_valid),
               shuffle=True,
               callbacks = callbacks)
 else:
@@ -132,14 +136,14 @@ else:
                                      batch_size=batch_size),
                         epochs=epochs,
                         steps_per_epoch=len(x_train)/batch_size,
-                        validation_data=(x_test, y_test),
+                        validation_data=(x_valid, y_valid),
                         workers=1,
                         callbacks = callbacks)
 
 # Save model and weights
 if not os.path.isdir(save_dir):
     os.makedirs(save_dir)
-model_path = os.path.join(save_dir, model_name)
+model_path = os.path.join(save_dir, model_name+".h5")
 model.save(model_path)
 print('Saved trained model at %s ' % model_path)
 
