@@ -33,10 +33,11 @@ save_dir = os.path.join(os.getcwd(), 'saved_models')
 #x_train, x_test, y_train, y_test, num_classes = ds.load_data("C:/Users/Cabral/Downloads/pedestrian_signal_classification/classification")
 x_train, x_valid, x_test, y_train, y_valid, y_test, num_classes = ds.load_data("E:/Datasets/pedestrian_signal/classification")
 
-model_name = 'rede1_aug' 
+#model_name = 'rede1_aug' 
+#data_augmentation = False
 
-if model_name:
-    data_augmentation = False
+model_name = 'rede1' 
+
 
 model = Sequential()
 model.add(Conv2D(32, (3, 3), padding='same',
