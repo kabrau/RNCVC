@@ -33,10 +33,11 @@ save_dir = os.path.join(os.getcwd(), 'saved_models')
 #x_train, x_test, y_train, y_test, num_classes = ds.load_data("C:/Users/Cabral/Downloads/pedestrian_signal_classification/classification")
 x_train, x_valid, x_test, y_train, y_valid, y_test, num_classes = ds.load_data("E:/Datasets/pedestrian_signal/classification")
 
-#model_name = 'rede1_aug' 
-#data_augmentation = False
+model_name = 'rede1_aug' 
+data_augmentation = True
 
-model_name = 'rede1' 
+#model_name = 'rede1' 
+#data_augmentation = False
 
 
 model = Sequential()
@@ -122,10 +123,10 @@ else:
         featurewise_std_normalization=False,  # divide inputs by std of the dataset
         samplewise_std_normalization=False,  # divide each input by its std
         zca_whitening=False,  # apply ZCA whitening
-        rotation_range=0,  # randomly rotate images in the range (degrees, 0 to 180)
+        rotation_range=5,  # randomly rotate images in the range (degrees, 0 to 180)
         width_shift_range=0.1,  # randomly shift images horizontally (fraction of total width)
         height_shift_range=0.1,  # randomly shift images vertically (fraction of total height)
-        horizontal_flip=True,  # randomly flip images
+        horizontal_flip=False,  # randomly flip images
         vertical_flip=False)  # randomly flip images
 
     # Compute quantities required for feature-wise normalization
