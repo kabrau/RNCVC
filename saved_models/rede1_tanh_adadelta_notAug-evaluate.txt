@@ -1,0 +1,1 @@
+rede1_tanh_adadelta_notAug;0.0316751180208;0.98769771529

@@ -1,0 +1,1 @@
+rede1_relu_adagrad_notAug;6.51522309164;0.595782073185

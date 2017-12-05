@@ -1,0 +1,1 @@
+rede1_tanh_adagrad_notAug;9.85380083396;0.279437609528
