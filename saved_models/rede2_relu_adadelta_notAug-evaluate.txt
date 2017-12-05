@@ -1,0 +1,1 @@
+rede2_relu_adadelta_notAug;0.0575160564393;0.989455184534
