@@ -25,7 +25,7 @@ def get_best_size(data_dir):
 
     print("Total Images: ",len(images_sizes))
     print("Mean dimension:", np.mean(images_sizes,axis=0).round())
-
+    print("Std dimension:", np.std(images_sizes,axis=0).round())
 
 # Load the data
 def load_data(data_dir, h=80, w=48):
@@ -81,13 +81,13 @@ def load_data(data_dir, h=80, w=48):
 
 
 if __name__ == "__main__":
-    # get_best_size("C:/Users/Cabral/Downloads/pedestrian_signal_classification/classification")
-    X_train, X_valid, X_test, y_train, y_valid, y_test, num_classes = load_data("C:/Users/marcelo/Downloads/pedestrian_signal_classification/classification")
-
-    print(X_train.shape)
-    print(X_valid.shape)
-    print(X_test.shape)
-    print(len(y_train))
-    print(len(y_valid))
-    print(len(y_test))
-    print(num_classes)
+    get_best_size("C:/Users/marcelo/Downloads/pedestrian_signal_classification/classification")
+    
+    #X_train, X_valid, X_test, y_train, y_valid, y_test, num_classes = load_data("C:/Users/marcelo/Downloads/pedestrian_signal_classification/classification")
+    #print(X_train.shape)
+    #print(X_valid.shape)
+    #print(X_test.shape)
+    #print(len(y_train))
+    #print(len(y_valid))
+    #print(len(y_test))
+    #print(num_classes)
